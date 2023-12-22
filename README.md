@@ -70,7 +70,7 @@ It is recommended to intall WSL 2 through Microsoft Store.
 
 **Step 1:** Before proceed with the installation setup, download the [Ubuntu 22.04 Linux image](https://cloud-images.ubuntu.com/wsl/jammy/current/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz) (540 MB of file size), which will serve as the kernel to VIPER.
 
-⚠️ **Caution:** The installation process might result in errors ff your user name contains special characters. To avoid that, simply put the VIPER `Windows` folder on your `C:\` drive.
+⚠️ **Caution:** The installation process might result in errors if your user name contains special characters. To avoid that, simply put the VIPER `Windows` folder on your `C:\` drive.
 
 **Step 2:** After the download is complete, go to the `Windows` folder and double-click the **InstallVIPER.exe**. A window will pop-up to select the installation folder for VIPER and to select the downloaded Ubuntu tar.gz file.
 
@@ -295,7 +295,7 @@ VIPER was created by [CeVIVAS](https://bv.fapesp.br/en/auxilios/110575/continuou
 * Vincent Louis Viala
 
 Suppervised by:
-* Maria Carolina Quartim Barbosa Elias Sabbag
+* Maria Carolina Quartim Barbosa Elias Sabbaga
 * Sandra Coccuzzo Sampaio Vessoni 
 
 VIPER is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
