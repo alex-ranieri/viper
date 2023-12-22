@@ -1,6 +1,6 @@
 # VIPER - Viral Identification Pipeline for Emergency Response
 
-<img src="images/VIPER_ico.png" width="250" style="display: block; margin: 0 auto;"/>
+<img src="images/VIPER_ico.png" width="500" style="display: block; margin: 0 auto;"/>
 
 <br>
 
