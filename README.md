@@ -182,6 +182,8 @@ sudo ln -s $PIPELINE_PATH/Influenza/Exec_FLU_assembly_pipeline_Illumina.sh /usr/
 
 To run VIPER in GUI mode, execute the file **RunVIPER.exe**, located on the `Windows` folder, with a double-click. You can copy it or make a shortcut. 
 
+* ⚠️ If a visualization glitch occurs, please restart your computer.
+
 * Linux
 
 1. Copy the `viperGUI` folder, located under the `Linux` folder, to a directory of your preference;
@@ -291,6 +293,10 @@ VIPER was created by [CeVIVAS](https://bv.fapesp.br/en/auxilios/110575/continuou
 * Igor Santana Ribeiro
 * James Siqueira Pereira
 * Vincent Louis Viala
+
+Suppervised by:
+* Maria Carolina Quartim Barbosa Elias Sabbag
+* Sandra Coccuzzo Sampaio Vessoni 
 
 VIPER is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
 
