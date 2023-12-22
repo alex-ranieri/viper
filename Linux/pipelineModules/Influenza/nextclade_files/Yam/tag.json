@@ -1,0 +1,38 @@
+{
+  "comment": "fix: tree now uses correct genemap",
+  "compatibility": {
+    "nextcladeCli": {
+      "max": null,
+      "min": "1.10.0"
+    },
+    "nextcladeWeb": {
+      "max": null,
+      "min": "1.13.0"
+    }
+  },
+  "defaultGene": "HA1",
+  "defaultRef": "JN993010",
+  "enabled": true,
+  "files": {
+    "geneMap": "genemap.gff",
+    "primers": "primers.csv",
+    "qc": "qc.json",
+    "reference": "reference.fasta",
+    "sequences": "sequences.fasta",
+    "tree": "tree.json",
+    "virusPropertiesJson": "virus_properties.json"
+  },
+  "geneOrderPreference": [
+    "HA1",
+    "HA2"
+  ],
+  "metadata": {},
+  "name": "flu_yam_ha",
+  "nameFriendly": "Influenza B Yamagata HA",
+  "reference": {
+    "accession": "JN993010",
+    "source": "genbank",
+    "strainName": "B/Wisconsin/01/2010"
+  },
+  "tag": "2023-11-18T12:00:00Z"
+}

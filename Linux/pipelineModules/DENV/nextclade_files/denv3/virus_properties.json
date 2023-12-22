@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.10.0",
+  "alignmentParams": {
+    "retry_reverse_complement": true
+  },
+  "nucMutLabelMap": {},
+  "nucMutLabelMapReverse": {}
+}

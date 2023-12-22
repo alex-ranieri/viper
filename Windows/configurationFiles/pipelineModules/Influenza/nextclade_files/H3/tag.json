@@ -1,0 +1,38 @@
+{
+  "comment": "Addition of experimental lineages",
+  "compatibility": {
+    "nextcladeCli": {
+      "max": null,
+      "min": "1.3.0"
+    },
+    "nextcladeWeb": {
+      "max": null,
+      "min": "1.6.0"
+    }
+  },
+  "defaultGene": "HA1",
+  "defaultRef": "EPI1857216",
+  "enabled": true,
+  "files": {
+    "geneMap": "genemap.gff",
+    "primers": "primers.csv",
+    "qc": "qc.json",
+    "reference": "reference.fasta",
+    "sequences": "sequences.fasta",
+    "tree": "tree.json",
+    "virusPropertiesJson": "virus_properties.json"
+  },
+  "geneOrderPreference": [
+    "HA1",
+    "HA2"
+  ],
+  "metadata": {},
+  "name": "flu_h3n2_ha",
+  "nameFriendly": "Influenza A H3N2 HA",
+  "reference": {
+    "accession": "EPI1857216",
+    "source": "gisaid",
+    "strainName": "A/Darwin/6/2021"
+  },
+  "tag": "2023-11-18T12:00:00Z"
+}

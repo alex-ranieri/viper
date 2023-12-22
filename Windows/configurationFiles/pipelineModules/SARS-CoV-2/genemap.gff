@@ -1,0 +1,18 @@
+##gff-version 3
+##sequence-region NC_045512.2_pilon 1 29903
+# Gene map (genome annotation) of SARS-CoV-2 in GFF format.
+# For gene map purpses we only need some of the columns. We substitute unused values with "." as per GFF spec.
+# See GFF format reference at https://www.ensembl.org/info/website/upload/gff.html
+# seqname	source	feature	start	end	score	strand	frame	attribute
+NC_045512.2_pilon	GenBank	CDS	266	13468	.	+	.	ID=ORF1a
+NC_045512.2_pilon	GenBank	CDS	13468	21555	.	+	.	ID=ORF1b
+NC_045512.2_pilon	GenBank	CDS	25393	26220	.	+	.	ID=ORF3a
+NC_045512.2_pilon	GenBank	CDS	21563	25384	.	+	.	ID=Spike
+NC_045512.2_pilon	GenBank	CDS	26245	26472	.	+	.	ID=Envelope
+NC_045512.2_pilon	GenBank	CDS	26523	27191	.	+	.	ID=Membrane_Glycoprotein
+NC_045512.2_pilon	GenBank	CDS	27202	27387	.	+	.	ID=ORF6
+NC_045512.2_pilon	GenBank	CDS	27394	27759	.	+	.	ID=ORF7a
+NC_045512.2_pilon	GenBank	CDS	27756	27887	.	+	.	ID=ORF7b
+NC_045512.2_pilon	GenBank	CDS	27894	28259	.	+	.	ID=ORF8
+NC_045512.2_pilon	GenBank	CDS	28274	29533	.	+	.	ID=Nucleocapsid
+NC_045512.2_pilon	GenBank	CDS	28284	28577	.	+	.	ID=ORF9b

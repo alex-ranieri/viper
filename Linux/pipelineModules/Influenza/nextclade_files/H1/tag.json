@@ -1,0 +1,38 @@
+{
+  "comment": "Addition of experimental lineages",
+  "compatibility": {
+    "nextcladeCli": {
+      "max": null,
+      "min": "1.3.0"
+    },
+    "nextcladeWeb": {
+      "max": null,
+      "min": "1.6.0"
+    }
+  },
+  "defaultGene": "HA1",
+  "defaultRef": "MW626062",
+  "enabled": true,
+  "files": {
+    "geneMap": "genemap.gff",
+    "primers": "primers.csv",
+    "qc": "qc.json",
+    "reference": "reference.fasta",
+    "sequences": "sequences.fasta",
+    "tree": "tree.json",
+    "virusPropertiesJson": "virus_properties.json"
+  },
+  "geneOrderPreference": [
+    "HA1",
+    "HA2"
+  ],
+  "metadata": {},
+  "name": "flu_h1n1pdm_ha",
+  "nameFriendly": "Influenza A H1N1pdm HA",
+  "reference": {
+    "accession": "MW626062",
+    "source": "genbank",
+    "strainName": "A/Wisconsin/588/2019"
+  },
+  "tag": "2023-11-18T12:00:00Z"
+}
