@@ -275,14 +275,14 @@ Shedding New Skin: VIPER's Future Evolution
 
 VIPER's journey is just beginning, with exciting advancements on the horizon:
 
-* ☐️ Unlocking advanced options: Unleash greater flexibility for power users with expanded parameter configurations.
-* ☐️ Shedding light on pipelines: Illuminate each viral pipeline's methodology and capabilities with detailed explanations in the README file.
-* ☐️ Conquering human monkeypox: Integrate a dedicated module for human monkeypox genome assembly, broadening VIPER's viral repertoire.
-* ☐️ Intuitive pipeline selection: Empower VIPER to automatically detect the virus from reads and initiate the appropriate pipeline for seamless analysis.
-* ☐️ Deciphering output: Dive into the secrets of VIPER's output files with clear and informative documentation.
-* ☐️ Tracking progress: Monitor pipeline execution and troubleshoot potential issues with detailed log files.
-* ☐️ Aesthetic transformation: Infuse VIPER's GUI with visual appeal and intuitive design, making it a joy to navigate and use.
-* ☐️ Phylogenetic pursuits: Empower users to delve into the evolutionary relationships of viruses with a phylogenetics analysis module.
+- [ ] Unlocking advanced options: Unleash greater flexibility for power users with expanded parameter configurations.
+- [ ] Shedding light on pipelines: Illuminate each viral pipeline's methodology and capabilities with detailed explanations in the README file.
+- [ ] Conquering human monkeypox: Integrate a dedicated module for human monkeypox genome assembly, broadening VIPER's viral repertoire.
+- [ ] Intuitive pipeline selection: Empower VIPER to automatically detect the virus from reads and initiate the appropriate pipeline for seamless analysis.
+- [ ] Deciphering output: Dive into the secrets of VIPER's output files with clear and informative documentation.
+- [ ] Tracking progress: Monitor pipeline execution and troubleshoot potential issues with detailed log files.
+- [x] Aesthetic transformation: Infuse VIPER's GUI with visual appeal and intuitive design, making it a joy to navigate and use: changed TKinter to PyQt5!
+- [ ] Phylogenetic pursuits: Empower users to delve into the evolutionary relationships of viruses with a phylogenetics analysis module.
 
 ## Copyright and licence
 
