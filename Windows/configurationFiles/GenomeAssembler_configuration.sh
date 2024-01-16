@@ -13,7 +13,7 @@ echo "Installing essential packages..."
 apt install -y build-essential wget
 
 # Instala o neofetch
-apt install -y neofetch bc csvkit
+apt install -y neofetch bc csvkit libgl1
 
 # Obtém o nome do usuário como argumento
 password=$1
@@ -61,7 +61,7 @@ sudo -u viper bash -c "/home/viper/miniconda3/bin/conda config --set channel_pri
 echo "Creating Conda env 'VIPERGenomeAssembler'"
 sudo -u viper bash -c "/home/viper/miniconda3/bin/conda install -y -c conda-forge micromamba" 
 echo "Installing packages in Conda env 'VIPERGenomeAssembler' using micromamba"
-sudo -u viper bash -c "/home/viper/miniconda3/bin/micromamba create -y --prefix /home/viper/miniconda3/envs/VIPERGenomeAssembler python=3.8 fastqc trimmomatic fastp cutadapt spades bowtie2 samtools ivar pangolin minimap blast quast pilon nextclade seqtk sra-tools bandage iqtree xlrd openpyxl"
+sudo -u viper bash -c "/home/viper/miniconda3/bin/micromamba create -y --prefix /home/viper/miniconda3/envs/VIPERGenomeAssembler python=3.8 fastqc trimmomatic fastp cutadapt spades bowtie2 samtools ivar pangolin minimap blast quast pilon nextclade seqtk sra-tools bandage iqtree xlrd openpyxl pyqt"
 
 # Exportando comando para ativar o ambiente GenomeAssembler por padrão para o usuário
 echo "conda activate VIPERGenomeAssembler" >> /home/viper/.bashrc 
