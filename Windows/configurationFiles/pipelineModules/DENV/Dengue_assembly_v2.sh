@@ -36,7 +36,7 @@ sorotipo=(1 2 3 4)
 for i in "${sorotipo[@]}" 
 do
     bwa mem -t ${THREADS} $PIPELINE/DENV/Reference_Genomes/dengue_${i}.fasta ${F}_R1_paired.fq.gz ${F}_R2_paired.fq.gz > ${F}_dengue_${i}_mapped.sam
-    samtools view -S -b -q 30 ${F}_dengue_${i}_mapped.sam > ${F}_dengue_${i}_mapped.bam
+    samtools view -S -b -q 10 ${F}_dengue_${i}_mapped.sam > ${F}_dengue_${i}_mapped.bam
     samtools sort ${F}_dengue_${i}_mapped.bam -o ${F}_dengue_${i}_mapped.sorted.bam
     samtools index ${F}_dengue_${i}_mapped.sorted.bam
     rm ${F}_dengue_${i}_mapped.sam
@@ -54,14 +54,14 @@ selected_serotype=$(sort -k1 -rn stats_ReadsMapped.tsv | head -n1 | cut -f 2 | t
 
 ## 3a etapa - usar pilon no sorotipo selecionado
 
-pilon --genome $PIPELINE/DENV/Reference_Genomes/dengue_${selected_serotype}.fasta --frags ${F}_dengue_${selected_serotype}_mapped.sorted.bam --output ${F}_${selected_serotype}.Pilon --fix "gaps,indels"  --threads ${THREADS} --mindepth 5 --minmq 30;
+pilon --genome $PIPELINE/DENV/Reference_Genomes/dengue_${selected_serotype}.fasta --frags ${F}_dengue_${selected_serotype}_mapped.sorted.bam --output ${F}_${selected_serotype}.Pilon --fix "gaps,indels"  --threads ${THREADS} --mindepth 5 --minqual 20 --minmq 10;
 
 
 ## 4a etapa - remapear em cima do fasta pilon
 
 bwa index ${F}_${selected_serotype}.Pilon.fasta
 bwa mem -t ${THREADS} ${F}_${selected_serotype}.Pilon.fasta ${F}_R1_paired.fq.gz ${F}_R2_paired.fq.gz > ${F}_dengue_${selected_serotype}_Pilon_mapped.sam
-samtools view -S -b -q 30 ${F}_dengue_${selected_serotype}_Pilon_mapped.sam > ${F}_dengue_${selected_serotype}_Pilon_mapped.bam
+samtools view -S -b -q 10 ${F}_dengue_${selected_serotype}_Pilon_mapped.sam > ${F}_dengue_${selected_serotype}_Pilon_mapped.bam
 samtools sort ${F}_dengue_${selected_serotype}_Pilon_mapped.bam -o ${F}_dengue_${selected_serotype}_Pilon_mapped.sorted.bam
 samtools index ${F}_dengue_${selected_serotype}_Pilon_mapped.sorted.bam
 rm ${F}_dengue_${selected_serotype}_Pilon_mapped.sam
@@ -71,7 +71,7 @@ samtools mpileup -aa -A -d 0 -Q 0 ${F}_dengue_${selected_serotype}_Pilon_mapped.
 
 ## 6a etapa - Ajuste de remapeamento
 bwa index ${F}_ivar.fa
-bwa mem ${F}_ivar.fa  ${F}_R1_paired.fq.gz  ${F}_R2_paired.fq.gz  -t ${THREADS} | samtools view -S -b -q 30 > ${F}.Pilon2.bam
+bwa mem ${F}_ivar.fa  ${F}_R1_paired.fq.gz  ${F}_R2_paired.fq.gz  -t ${THREADS} | samtools view -S -b -q 10 > ${F}.Pilon2.bam
 samtools sort -o ${F}.Pilon2.sorted.bam ${F}.Pilon2.bam
 samtools index ${F}.Pilon2.sorted.bam
 
@@ -139,7 +139,7 @@ fi
 seqtk comp Genoma_${F}.fasta | awk '{x+=$9}END{print x}' > ${F}.CountNs;
 echo $selected_serotype > ${F}.SeroType 
 
-nextclade run -D $PIPELINE/DENV/nextclade_files/denv${selected_serotype} -j 3 -t nextclade.tsv Genoma_${F}.fasta
+nextclade run -D $PIPELINE/DENV/nextclade_files/denv${selected_serotype} -j ${THREADS} -t nextclade.tsv Genoma_${F}.fasta
 csvcut -t -c clade nextclade.tsv | tail -n+2 > ${F}.Genotype
 
 # Print statistics to .Statistics file.

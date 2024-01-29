@@ -32,38 +32,38 @@ rm -rf ${F}_R1_unpaired.fq.gz ${F}_R2_unpaired.fq.gz
 
 ## 1a etapa:
 
-bowtie2 -p ${THREADS} -x $PIPELINE/SARS-CoV-2/Reference_Genomes/Ref_Wuhan -1 ${F}_R1_paired.fq.gz -2 ${F}_R2_paired.fq.gz -U ${F}_unpaired.fq.gz | samtools view -S -b -q 30 > ${F}_Wuhan_mapped.bam
+bowtie2 -p ${THREADS} -x $PIPELINE/SARS-CoV-2/Reference_Genomes/Ref_Wuhan -1 ${F}_R1_paired.fq.gz -2 ${F}_R2_paired.fq.gz -U ${F}_unpaired.fq.gz | samtools view -S -b -q 10 > ${F}_Wuhan_mapped.bam
 samtools sort ${F}_Wuhan_mapped.bam -o ${F}_Wuhan_mapped.sorted.bam
 samtools index ${F}_Wuhan_mapped.sorted.bam
 
 
 ## 2a etapa:
 
-pilon --genome $PIPELINE/SARS-CoV-2/Reference_Genomes/Ref_Wuhan.fasta --frags ${F}_Wuhan_mapped.sorted.bam --minmq 30 --output ${F}.Pilon --fix "gaps,indels"  --threads ${THREADS} --mindepth 10;
+pilon --genome $PIPELINE/SARS-CoV-2/Reference_Genomes/Ref_Wuhan.fasta --frags ${F}_Wuhan_mapped.sorted.bam --minqual 20 --minmq 10 --output ${F}.Pilon --fix "gaps,indels"  --threads ${THREADS} --mindepth 10;
 
 ## 3a etapa:
 
 bowtie2-build ${F}.Pilon.fasta ${F}.Pilon.fasta
-bowtie2 -p ${THREADS} -x ${F}.Pilon.fasta -1 ${F}_R1_paired.fq.gz -2 ${F}_R2_paired.fq.gz -U ${F}_unpaired.fq.gz | samtools view -S -b -q 30 > ${F}.Pilon.bam
+bowtie2 -p ${THREADS} -x ${F}.Pilon.fasta -1 ${F}_R1_paired.fq.gz -2 ${F}_R2_paired.fq.gz -U ${F}_unpaired.fq.gz | samtools view -S -b -q 10 > ${F}.Pilon.bam
 samtools sort ${F}.Pilon.bam -o ${F}.Pilon.sorted.bam
 samtools index ${F}.Pilon.sorted.bam
 
 ## 4a etapa:
 
-samtools mpileup -aa -A -d 0 -Q 0 ${F}.Pilon.sorted.bam | ivar consensus -q 30 -p ${F}_ivar -i NC_045512.2_pilon
+samtools mpileup -aa -A -d 0 -Q 0 ${F}.Pilon.sorted.bam | ivar consensus -q 10 -p ${F}_ivar -i NC_045512.2_pilon
 
 python $PIPELINE/SARS-CoV-2/substitute_degenarate_bases.py ${F}_ivar.fa ${F}_ivar_clean.fa
 rm ${F}_ivar.fa
 
 ## Ajuste de remapeamento
 bowtie2-build ${F}_ivar_clean.fa ${F}_ivar_clean.fa
-bowtie2 -p ${THREADS} -x ${F}_ivar_clean.fa  -1 ${F}_R1_paired.fq.gz -2 ${F}_R2_paired.fq.gz -U ${F}_unpaired.fq.gz | samtools view -S -b -q 30 > ${F}.Pilon2.bam
+bowtie2 -p ${THREADS} -x ${F}_ivar_clean.fa  -1 ${F}_R1_paired.fq.gz -2 ${F}_R2_paired.fq.gz -U ${F}_unpaired.fq.gz | samtools view -S -b -q 10 > ${F}.Pilon2.bam
 samtools sort ${F}.Pilon2.bam -o ${F}.Pilon2.sorted.bam
 samtools index ${F}.Pilon2.sorted.bam
 
 # SNP calling
 
-samtools mpileup -aa -A -d 0 -B -Q 0 ${F}.Pilon2.sorted.bam | ivar variants -p ${F}_iVar_variants -q 20 -t 0.03 -m 400 -r ${F}_ivar_clean.fa -g $PIPELINE/SARS-CoV-2/genemap.gff
+samtools mpileup -aa -A -d 0 -B -Q 0 ${F}.Pilon2.sorted.bam | ivar variants -p ${F}_iVar_variants -q 20 -t 0.03 -m 100 -r ${F}_ivar_clean.fa -g $PIPELINE/SARS-CoV-2/genemap.gff
 grep 'TRUE' ${F}_iVar_variants.tsv | cut -f 1-4 | sort | uniq | grep -v '+' | grep -v '-' | grep -vP 'N\t' | grep -vP '\tN'  | wc -l > ${F}.SNPsCount
 
 grep 'TRUE' ${F}_iVar_variants.tsv | grep 'ORF1a' | cut -f 1-4 |grep -v '+' | grep -v '-' | grep -vP 'N\t' | grep -vP '\tN' | wc -l > ${F}.ORF1aSNPsCount
