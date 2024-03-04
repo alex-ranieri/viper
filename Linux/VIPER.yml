@@ -1,4 +1,4 @@
-name: VIPERGenomeAssembler
+name: VIPER
 channels:
   - bioconda
   - anaconda
@@ -380,4 +380,4 @@ dependencies:
   - zlib=1.2.13=hd590300_5
   - zstandard=0.22.0=py38ha98ab4e_0
   - zstd=1.5.5=hfc55251_0
-prefix: /home/viper/miniconda3/envs/VIPERGenomeAssembler
+prefix: /home/viper/miniconda3/envs/VIPER
