@@ -296,7 +296,7 @@ VIPER was created by [CeVIVAS](https://bv.fapesp.br/en/auxilios/110575/continuou
 
 Suppervised by:
 * Maria Carolina Quartim Barbosa Elias Sabbaga
-* Sandra Coccuzzo Sampaio Vessoni 
+* Sandra Coccuzzo Sampaio 
 
 VIPER is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
 
