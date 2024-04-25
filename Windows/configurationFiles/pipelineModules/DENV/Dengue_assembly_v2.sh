@@ -141,11 +141,12 @@ echo $selected_serotype > ${F}.SeroType
 
 nextclade run -D $PIPELINE/DENV/nextclade_files/denv${selected_serotype} -j ${THREADS} -t nextclade.tsv Genoma_${F}.fasta
 csvcut -t -c clade nextclade.tsv | tail -n+2 > ${F}.Genotype
+csvcut -t -c lineage_membership nextclade.tsv | tail -n+2 > ${F}.Lineage
 
 # Print statistics to .Statistics file.
 ls Genoma_${F}.fasta > ${F}.GenomeName;
-printf "Genome\tN_Reads\tReads_mapped\tPercent_mapped\tMean_depth\tMedian_depth\tNpos_Depth>=10\tNpos_Depth>=25\tCoverage\tE_Coverage\tE_Depth\tNS1_Coverage\tNS1_Depth\tNS3_Coverage\tNS3_Depth\tNS5_Coverage\tNS5_Depth\tNumber_of_Ns\tSNPs\tSerotype\tGenotype\n" > ${F}.Statistics;
-paste -d "\t" *GenomeNam* *ReadC* *ReadsMappedFinal *Percent* *.MeanDepth *.MedianDepth *Depth10 *Depth25 *CoverageBlastn *.Coverage_gene_E *.Coverage_E_MeanDepth *.Coverage_gene_NS1 *.Coverage_NS1_MeanDepth *.Coverage_gene_NS3 *.Coverage_NS3_MeanDepth *.Coverage_gene_NS5 *.Coverage_NS5_MeanDepth *CountN* *.SNPsCount *.SeroType *.Genotype >> ${F}.Statistics;
+printf "Genome\tN_Reads\tReads_mapped\tPercent_mapped\tMean_depth\tMedian_depth\tNpos_Depth>=10\tNpos_Depth>=25\tCoverage\tE_Coverage\tE_Depth\tNS1_Coverage\tNS1_Depth\tNS3_Coverage\tNS3_Depth\tNS5_Coverage\tNS5_Depth\tNumber_of_Ns\tSNPs\tSerotype\tGenotype\tLineage\n" > ${F}.Statistics;
+paste -d "\t" *GenomeNam* *ReadC* *ReadsMappedFinal *Percent* *.MeanDepth *.MedianDepth *Depth10 *Depth25 *CoverageBlastn *.Coverage_gene_E *.Coverage_E_MeanDepth *.Coverage_gene_NS1 *.Coverage_NS1_MeanDepth *.Coverage_gene_NS3 *.Coverage_NS3_MeanDepth *.Coverage_gene_NS5 *.Coverage_NS5_MeanDepth *CountN* *.SNPsCount *.SeroType *.Genotype *.Lineage>> ${F}.Statistics;
 
 
 # Copy Genome and Statistics to folder up.

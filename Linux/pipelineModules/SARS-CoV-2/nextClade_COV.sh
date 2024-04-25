@@ -6,10 +6,6 @@ P=$4; # Number of processors to use
 # Sort All Stats file for latter
 sort -ru ${S} > ${S:0:-4}_sorted.tsv
 
-# Update tree.json
-
-nextclade dataset get --name='sars-cov-2' --output-dir="$PIPELINE/SARS-CoV-2/nextstrain_files/"
-
 # Run NextClade 
 
 mkdir -p ${H}__nextClade # Create NextClade output folder

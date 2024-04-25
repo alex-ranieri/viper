@@ -1,0 +1,60 @@
+{
+  "alignmentParams": {
+    "retry_reverse_complement": true
+  },
+  "attributes": {
+    "name": "DENV-3",
+    "reference accession": "NC_001475",
+    "reference name": "NC_001475"
+  },
+  "compatibility": {
+    "cli": "3.0.0-alpha.0",
+    "web": "3.0.0-alpha.0"
+  },
+  "deprecated": false,
+  "experimental": true,
+  "files": {
+    "changelog": "CHANGELOG.md",
+    "genomeAnnotation": "genome_annotation.gff3",
+    "pathogenJson": "pathogen.json",
+    "readme": "README.md",
+    "reference": "reference.fasta",
+    "treeJson": "tree.json"
+  },
+  "meta": {
+    "bugs": "https://github.com/alex-ranieri/denvLineages/issues",
+    "source code": "https://github.com/alex-ranieri/denvLineages"
+  },
+  "qc": {
+    "frameShifts": {
+      "enabled": true
+    },
+    "missingData": {
+      "enabled": true,
+      "missingDataThreshold": 1605,
+      "scoreBias": 200
+    },
+    "mixedSites": {
+      "enabled": true,
+      "mixedSitesThreshold": 6
+    },
+    "privateMutations": {
+      "cutoff": 18,
+      "enabled": true,
+      "typical": 5
+    },
+    "snpClusters": {
+      "clusterCutOff": 6,
+      "enabled": true,
+      "scoreWeight": 50,
+      "windowSize": 100
+    },
+    "stopCodons": {
+      "enabled": true
+    }
+  },
+  "schemaVersion": "3.0.0",
+  "version": {
+    "tag": "unreleased"
+  }
+}

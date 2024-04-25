@@ -4,7 +4,7 @@ THREADS=$1
 SAMPLES=$2
 
 # Update pangolin
-pangolin --update-data
+#pangolin --update-data
 
 # Create list of samples based on fastq files
 L=$(ls *.fastq.gz); for f in $L; do g=${f%.*}; echo ${g%_L00*};  done | uniq > Lista.txt

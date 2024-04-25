@@ -75,6 +75,11 @@ class ViperGUI(QMainWindow):
         button_run.clicked.connect(self.run_pipeline)
         layout.addWidget(button_run)
 
+        # Update Virus Databases Button
+        button_update_databases = QPushButton("Update Virus Databases", self)
+        button_update_databases.clicked.connect(self.update_databases)
+        layout.addWidget(button_update_databases)
+
         # Apply style to adjust font size
         self.setStyleSheet(
             """
@@ -131,6 +136,16 @@ class ViperGUI(QMainWindow):
             QMessageBox.information(self, "Executed", "VIPER executed!")
         except subprocess.CalledProcessError:
             QMessageBox.critical(self, "Error", "An error occurred while trying to run VIPER.")
+
+    def update_databases(self):
+        # Run the script to update virus databases
+        pipeline_path = os.environ.get("PIPELINE")
+        script_path = os.path.join(pipeline_path, "update_database", "update_virusDB.sh")
+        try:
+            subprocess.run([script_path], check=True, shell=True)
+            QMessageBox.information(self, "Done", "Virus databases updated successfully!")
+        except subprocess.CalledProcessError:
+            QMessageBox.critical(self, "Error", "An error occurred while updating virus databases.")
 
     def on_pipeline_changed(self, index):
         selected_pipeline = self.pipeline_choice.itemText(index)

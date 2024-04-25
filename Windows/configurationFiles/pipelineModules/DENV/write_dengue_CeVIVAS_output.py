@@ -13,7 +13,7 @@ folder_name = sys.argv[2]
 statistics_df = pd.read_csv(statistics_file, sep= '\t')
 
 #estruturar 
-statistics_df_useful = statistics_df[['Genome', 'Serotype', 'Genotype', 'SNPs', 'Coverage', 'E_Coverage']]
+statistics_df_useful = statistics_df[['Genome', 'Serotype', 'Genotype', 'Lineage', 'SNPs', 'Coverage', 'E_Coverage']]
 
 #gerar o passed qc
 passed_QC = {}
@@ -36,12 +36,12 @@ statistics_df_useful['CEVIVAS_ID'] = ''
 
 #criando a coluna repeat, estudo e analysis
 statistics_df_useful['Repeat'] = ''
-statistics_df_useful['Estudo'] = ''
+statistics_df_useful['Study'] = ''
 statistics_df_useful['Analysis'] = ''
 
 #selecionando as coluna e colando-as em ordem 
-statistics_df_useful = statistics_df_useful[['CEVIVAS_ID','Genome','Serotype','Genotype','Coverage', 'E_Coverage', 'Passed QC?','SNPs',
-                                 'Notes','Repeat','Estudo','Analysis']]
+statistics_df_useful = statistics_df_useful[['CEVIVAS_ID','Genome','Serotype','Genotype', 'Lineage', 'Coverage', 'E_Coverage', 'Passed QC?','SNPs',
+                                 'Notes','Repeat','Study','Analysis']]
 
 #criando o arquivo final 
 output_file_name = 'CeVIVAS_DENV_' + folder_name + '.xlsx'

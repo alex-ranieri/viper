@@ -13,7 +13,7 @@ folder_name = sys.argv[2]
 statistics_df = pd.read_csv(statistics_file, sep= '\t')
 
 #estruturar 
-statistics_df_useful = statistics_df[['Genome', 'Serotype', 'Genotype', 'SNPs', 'Coverage', 'E_Coverage']]
+statistics_df_useful = statistics_df[['Genome', 'Serotype', 'Genotype', 'Lineage', 'SNPs', 'Coverage', 'E_Coverage']]
 
 #gerar o passed qc
 passed_QC = {}
@@ -25,7 +25,7 @@ for index, row in statistics_df_useful.iterrows():
     elif (ecov) >= 55.0:
         passed_QC[index] = 'E'
     else:
-        passed_QC[index] = 'F'
+        passed_QC[index] = 'R'
 statistics_df_useful['Passed QC?'] = pd.Series(passed_QC)
 
 #criando a coluna notes 
@@ -40,7 +40,7 @@ statistics_df_useful['Study'] = ''
 statistics_df_useful['Analysis'] = ''
 
 #selecionando as coluna e colando-as em ordem 
-statistics_df_useful = statistics_df_useful[['CEVIVAS_ID','Genome','Serotype','Genotype','Coverage', 'E_Coverage', 'Passed QC?','SNPs',
+statistics_df_useful = statistics_df_useful[['CEVIVAS_ID','Genome','Serotype','Genotype', 'Lineage', 'Coverage', 'E_Coverage', 'Passed QC?','SNPs',
                                  'Notes','Repeat','Study','Analysis']]
 
 #criando o arquivo final 

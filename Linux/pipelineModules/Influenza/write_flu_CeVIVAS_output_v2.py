@@ -33,7 +33,7 @@ for index, row in statistics_df_useful.iterrows():
     seg4_detect = row['segment_4_Coverage']
 
     if ((seg4_detect == 'not_detected') or (seg4_detect == 'could_not_be_assembled')):
-        passed_QC[index] = 'F'
+        passed_QC[index] = 'R'
     else:
         passed_QC[index] = 'A'
 statistics_df_useful['Passed QC?'] = pd.Series(passed_QC)
@@ -43,11 +43,11 @@ statistics_df_useful['CEVIVAS_ID'] = ''
 
 #criando a coluna repeat, estudo e analysis
 statistics_df_useful['Repeat'] = ''
-statistics_df_useful['Study'] = ''
+statistics_df_useful['Estudo'] = ''
 statistics_df_useful['Analysis'] = ''
 
 cevivas_output = statistics_df_useful[['CEVIVAS_ID','Genome', 'Type', 'Subtype', 'Clade', 'Segments_Assembled',
-                        'Segments', 'Passed QC?', 'Notes', 'Repeat', 'Study', 'Analysis' ,'segment_1_Coverage','segment_2_Coverage',
+                        'Segments', 'Passed QC?', 'Notes', 'Repeat', 'Estudo', 'Analysis' ,'segment_1_Coverage','segment_2_Coverage',
                          'segment_3_Coverage','segment_4_Coverage','segment_5_Coverage',
                          'segment_6_Coverage','segment_7_Coverage','segment_8_Coverage']]
 output_file_name = 'CeVIVAS_FLU_' + folder_name + '.xlsx'
