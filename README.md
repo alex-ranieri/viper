@@ -292,6 +292,7 @@ VIPER was created by [CeVIVAS](https://bv.fapesp.br/en/auxilios/110575/continuou
 * Alex Ranieri J. Lima 
 * Gabriela Ribeiro
 * Vinicius Carius De Souza
+* Isabela Carvalho Brcko
 * Igor Santana Ribeiro
 * James Siqueira Pereira
 * Vincent Louis Viala
