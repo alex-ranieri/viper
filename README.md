@@ -272,6 +272,21 @@ Example: If you set VIPER to assemble 3 samples in parallel (`{num_samples}`), e
 
 Results will be located on the same directory of the analyzed samples.
 
+## VIPER pipelines
+
+### SARS-CoV-2 assembly
+
+<img src="images/SARS-CoV-2 iSNVs.png" width="600" style="display: block; margin: 0 auto;"/>
+
+### Dengue assembly
+
+<img src="images/DENV_ASSEMBLY.png" width="600" style="display: block; margin: 0 auto;"/>
+
+### Influenza assembly
+
+<img src="images/Influenza assembly pipeline.png" width="600" style="display: block; margin: 0 auto;"/>
+
+
 ## Future implementations
 Shedding New Skin: VIPER's Future Evolution
 
