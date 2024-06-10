@@ -8,7 +8,7 @@ VIPER is a user-friendly software for assembling and identifying viral genomes (
 
 What sets VIPER apart?
 
-* Assign Dengue virus sequences to lineages! VIPER use the data provided in [denvLineages](https://github.com/alex-ranieri/denvLineages) to determine DENV lineages to assembled sequences. 
+* Assign Dengue virus sequences to lineages! VIPER use the data provided in [Dynamic DEVILS (Dengue Evolutionary Viral Intra-genotype Lineage System)](https://github.com/alex-ranieri/denvLineages) to determine DENV lineages to assembled sequences. 
 
 * User-friendly GUI: Say goodbye to intimidating command lines! VIPER boasts a intuitive graphical user interface (GUI) that guides you through the entire analysis workflow, making it accessible to users of all experience levels, even those with no prior bioinformatics expertise.
 
