@@ -41,6 +41,10 @@ If you have any suggestions or feedback, please feel free to share them with us.
 * [Usage](#usage)
     * [GUI](#gui)
     * [Command line](#command-line)
+* [VIPER pipelines](#viper-pipelines)
+    * [SARS-CoV-2 assembly](#sars-cov-2-assembly)
+    * [Dengue assembly](#dengue-assembly)
+    * [Influenza assembly](#influenza-assembly)
 * [Future implementations](#future-implementations)
 * [Copyright and licence](#copyright-and-licence)
 
