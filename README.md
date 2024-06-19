@@ -6,6 +6,8 @@
 
 VIPER is a user-friendly software for assembling and identifying viral genomes (currently SARS-CoV-2, Dengue, and Influenza), from Illumina sequencing data generated through genomic surveillance. Developed and used by the [CeVIVAS](https://bv.fapesp.br/en/auxilios/110575/continuous-improvement-of-vaccines-center-for-viral-surveillance-and-serological-assessment-cevivas/) bioinformatics team at the Butantan Institute, the name VIPER reflects not only their affiliation but also the symbolism of the snake: vitality, rebirth, renewal, and the very essence of life itself!
 
+You can find the lattest VIPER version on [our lab repository page](https://github.com/V-GEN-Lab/viper)!
+
 What sets VIPER apart?
 
 * Assign Dengue virus sequences to lineages! VIPER use the data provided in [Dynamic DEVILS (Dengue Evolutionary Viral Intra-genotype Lineage System)](https://github.com/alex-ranieri/denvLineages) to determine DENV lineages to assembled sequences. 
